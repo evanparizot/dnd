@@ -1,0 +1,100 @@
+\documentclass[ms,a4paper]{memoir}
+\chapterstyle{dash} % try also reparticle
+\usepackage{ulem}   % underline
+\usepackage{xcolor} %
+\usepackage{lipsum} %dummy text
+% All font size must be normal size 
+\renewcommand{\large}{\normalsize}
+\renewcommand{\Large}{\normalsize}
+\newcommand{\red}[1]{\textcolor{red!50!black}{#1}}
+\newcommand{\RED}[1]{\textcolor{red!50!black}{\MakeUppercase{#1}}}
+% font hyphenation 
+\usepackage{everysel}
+\EverySelectfont{%
+\fontdimen2\font=0.6em % interword space
+\fontdimen3\font=0.2em % interword stretch
+\fontdimen4\font=0.1em % interword shrink
+\fontdimen7\font=0.9em % extra space
+\hyphenchar\font=`\-% to allow hyphenation
+}
+
+%\usepackage[spacing=true,factor=1200, stretch=10, shrink=15]{microtype}
+
+\renewcommand{\baselinestretch}{1}
+\newbox\flinebox 
+\newbox\slinebox
+\newbox\mlinebox
+\def\duplines{
+    \setlength\parindent{0pt}
+    \setbox\flinebox\lastbox
+    \ifvoid\flinebox\relax
+    \else
+    \setbox\slinebox\hbox{\copy\flinebox}
+    \setbox\mlinebox\hbox{\copy\flinebox}
+    \unskip\unpenalty
+    {\duplines}
+    {\color{black!30} \box\flinebox\vspace*{-2.85ex}}
+    {\color{black!50} \makebox[\textwidth]{\hspace*{-0.25pt}\box\mlinebox}\vspace*{-2.75ex}}
+    {\color{black!90} \makebox[\textwidth]{\hspace*{0.25pt}\box\slinebox}}\fi
+}
+
+\newcommand\BlurText[1]{
+    \vbox{#1\par\duplines}
+}
+
+\title{MILKBOY}
+\author{Evan Parizot}
+\date{}
+
+\begin{document}
+\maketitle
+\chapter{\RED{The Shepherd}}
+
+A light breeze rolled over endless locks of grass as Rohan Yueh gazed out over 
+the valley that laid below. The wind rippled the lush foliage in an almost hypnotic 
+fashion, as if it intended to put onlookers into a deep trance. Snow capped mountains
+surrounded Rohan on all sides, towering over the town of Bergstadt that lay at 
+the center of the valley formed by the towering cliffs. The lad couldn't help but 
+marvel at the sight before him, even though it was one he had seen his entire life. 
+Nature had certainly blessed these lands.
+
+Rohan was startled by a firm nudge that came at his back. Turning around, he found 
+the nudge came from a light brown cow. The cow had a fairly shaggy mane that hung off 
+it's stocky frame and covered the creature's eyes just the ever so slightly. Small but pronounced 
+antlers protruded from it's head; not enough to cause significant injury but large 
+enough to defend from potential attackers. Several scores of other cows mingled behind 
+the one that interrupted Rohan's daydreaming. All of them looked expectedly at him.
+
+"Ok, ok Halifax", Rohan said. "I get the message".
+
+Rohan stood up from the little patch of grass he had picked out next to the mountain 
+trail, wiping away drops of water that had accumultated from the mountain air. From 
+the ground he also retrieved his family's heirloom instrument: a well weathered set 
+of bagpipes. Rohan placed the bag of the pipes under his arm and positioned the 
+mouthpiece.
+
+"I guess it's time to go", he thought.
+
+Rohan drew a breath in before playing a few test notes through the instrument. Once warmed up,
+he looked back again to the herd of cows. All of them continued to look expectantly at him.
+Rohan wheeled around and began to march down the mountain path. He started in on a 
+tune as he marched, the notes ringing out for the entire mountain valley to hear. As 
+he marched, the herd of cows began to march with him. Rohan didn't need to look back 
+to confirm that they were following; this was something they had done hundreds of times 
+before and knew what was necessary. Rohan was part of a special group that managed 
+the herds, amongst other duties. Members of this group were elite cow handlers, 
+being able to expertly guide the bovine creatures through the harshest of 
+conditions. Rohan Yeuh was a Milkboy.
+
+\chapter{\RED{The Thief}}
+
+
+
+
+% Bergstadt
+% LORE IPSUM text with \emph{some emphasis} and \red{color}.
+% \lipsum[1]
+% \BlurText{\lipsum[2]}
+
+
+\end{document}
